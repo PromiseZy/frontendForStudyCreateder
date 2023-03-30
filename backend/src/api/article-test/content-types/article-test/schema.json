@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_tests",
+  "info": {
+    "singularName": "article-test",
+    "pluralName": "article-tests",
+    "displayName": "article-test",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "topphoto": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "content": {
+      "type": "richtext",
+      "required": false,
+      "minLength": 1
+    },
+    "intro": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    }
+  }
+}
