@@ -7,7 +7,6 @@ const articleSlug = () => {
   
   const [artData, setArtData] = useState()
 
-
   function getSlug(path){
     return "/article/"+path
   }

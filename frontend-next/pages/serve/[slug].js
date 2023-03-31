@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { httpClient } from "@/service/httpClient";
 import { useEffect,useState } from "react";
+import ReactMarkdown from 'react-markdown';
 
 
 const serveSlug = () => {
@@ -49,7 +50,7 @@ const serveSlug = () => {
               <img src={getImg(serData.attributes.mainImg.data[0].attributes.url)}></img>
             </div>
             <div className="richText" >
-              <span>{serData.attributes.content}</span>
+            <ReactMarkdown >{serData.attributes.content}</ReactMarkdown >
             </div>
         </div>
       </>
