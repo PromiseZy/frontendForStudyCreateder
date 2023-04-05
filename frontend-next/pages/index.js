@@ -7,9 +7,13 @@ const index = () => {
 
   return(
     <>
-      <div className="container">
-      <Navbar/>
-        THIS IS HOME PAGE !!!!
+      <div className="">
+        <Navbar/>
+      </div>
+      <div className="bg-red-300 h-screen">
+        <div className="text-white capitalize text-center text-2xl font-black">
+          hello world
+        </div>
       </div>
     </>
   )

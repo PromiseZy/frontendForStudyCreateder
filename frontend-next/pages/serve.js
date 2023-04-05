@@ -39,12 +39,16 @@ const serve = () => {
 
     return(
       <>
-        <div className="center">
+        <div className="bg-red-300 h-full">
             <Navbar/>
-          THIS IS SERVE PAGE !!!!
+          <div className="">
+            <div className="text-white capitalize text-center text-2xl font-black">
+              This is serve page !!
+            </div>
+          </div>
           {serData.map((item, index) => {
         return (
-          <div key={index}>
+          <div key={index} className="">
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         sx={{ height: 140 }}

@@ -1,12 +1,7 @@
 import Navbar from "@/components/Navbar";
 import { httpClient } from "@/service/httpClient";
 import { useEffect,useState } from "react";
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import ArticleCard from "@/components/ArticleCard";
 
 
 const article = () => {
@@ -16,7 +11,7 @@ const article = () => {
     useEffect(() => {
         const getArtData = async () => {
             try {
-                const {data} = await httpClient.get('/api/articles?populate=*')
+                const {data} = await httpClient.get('/api/articles?populate=*&locale=all')
                 await setArtData(data.data)
     
             } catch (error) {
@@ -38,13 +33,18 @@ const article = () => {
 
     return(
       <>
-        <div className="container">
+        <div className="bg-red-300 h-screen">
             <Navbar/>
-          <h1>THIS IS ARTICLE PAGE !!!!</h1>
+          <div className="">
+            <div className="text-white capitalize text-center text-2xl font-black mb-10">
+              This is article page !!
+            </div>
+          </div>
+          <div className="m-2 p-2 flex flex-row flex-warp flex-auto">
           {artData.map((item, index) => {
         return (
-          <div key={index}>
-            <Card sx={{ maxWidth: 345 }}>
+          <div key={index} className="mr-4">
+            {/* <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         sx={{ height: 140 }}
                         image= {getImg(item.attributes.mainImg.data[0].attributes.url)}
@@ -63,11 +63,12 @@ const article = () => {
                             <Button size="small">Show more</Button>
                         </a>
                     </CardActions>
-                    </Card>
-            
+                    </Card> */}
+              <ArticleCard props={item} />
           </div>
         );
       })}
+      </div>
         </div>
       </>
     )

@@ -2,22 +2,20 @@ import Link from "next/link";
 import React from "react";
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
-      <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">My Website</a>
-      </div>
-      <div className="flex-none">
-        <ul className="menu menu-horizontal px-1">
-          <li>
+    <div className="bg-amber-300 text-white border-4 rounded-md border-amber-500 border-soild p-2 shadow ">
+      <div className="font-black text-lg">
+        <ul className="flex flex-row">
+          <ul className="font-black text-xl mx-10">My Website</ul>
+          <li className="mx-5">
             <Link href="/">Home</Link>
           </li>
-          <li>
+          <li className="mx-5">
             <Link href="/article">Article</Link>
           </li>
-          <li>
+          <li className="mx-5">
             <Link href="/serve">Serve</Link>
           </li>
-          <li>
+          <li className="mx-5">
             <Link href="/customer">Customer</Link>
           </li>
         </ul>
