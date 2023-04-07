@@ -3,8 +3,15 @@ import { httpClient } from "@/service/httpClient";
 import { useEffect,useState } from "react";
 import ArticleCard from "@/components/ArticleCard";
 
+export function getStaticProps({locale}){
+  return{
+    props:{
+      locale
+    }
+  }
+}
 
-const article = () => {
+function article(props){
   const [artData, setArtData] = useState([])
 
 
@@ -34,7 +41,7 @@ const article = () => {
     return(
       <>
         <div className="bg-red-300 h-screen">
-            <Navbar/>
+          <Navbar props={props}/>
           <div className="">
             <div className="text-white capitalize text-center text-2xl font-black mb-10">
               This is article page !!
@@ -44,26 +51,6 @@ const article = () => {
           {artData.map((item, index) => {
         return (
           <div key={index} className="mr-4">
-            {/* <Card sx={{ maxWidth: 345 }}>
-                    <CardMedia
-                        sx={{ height: 140 }}
-                        image= {getImg(item.attributes.mainImg.data[0].attributes.url)}
-                        title="green iguana"
-                    />
-                    <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                            {item.attributes.title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                            {item.attributes.intro}
-                        </Typography>
-                    </CardContent>
-                    <CardActions>
-                        <a href = {getSlug(item.attributes.slug)}>
-                            <Button size="small">Show more</Button>
-                        </a>
-                    </CardActions>
-                    </Card> */}
               <ArticleCard props={item} />
           </div>
         );

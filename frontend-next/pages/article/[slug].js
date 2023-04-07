@@ -7,6 +7,19 @@ const articleSlug = () => {
   
   const [artData, setArtData] = useState()
 
+  const renderers = {
+    image: ({ src, alt, title }) => {
+      return (
+        <img
+          src={src}
+          alt={alt}
+          title={title}
+          style={{ maxWidth: '100%', height: 'auto' }}
+        />
+      );
+    },
+  };
+  
   function getSlug(path){
     return "/article/"+path
   }
@@ -48,11 +61,12 @@ const articleSlug = () => {
               <div className="px-32 py-4 font-semibold text-2xl">
                   <h2>{artData.attributes.intro}</h2>
                 </div>
-                <div className="image px-32 py-4">
+                <div className="px-32 py-4">
                   <img src={getImg(artData.attributes.mainImg.data[0].attributes.url)}></img>
                 </div>
-                <div className="richText px-32 pb-6" >
-                <ReactMarkdown >{artData.attributes.content}</ReactMarkdown>
+                <div className="px-32 pb-6" >
+                <ReactMarkdown renderers={renderers} children={artData.attributes.content}/>
+                {/* <ReactMarkdown >{artData.attributes.content}</ReactMarkdown> */}
                 </div>
             </div>
         </div>

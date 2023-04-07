@@ -1,14 +1,22 @@
 import Navbar from "@/components/Navbar";
 
 
-const customer = () => {
+export function getStaticProps({locale}){
+  return{
+    props:{
+      locale
+    }
+  }
+}
+
+function customer(props) {
   
 
 
     return(
       <>
        <div className="">
-        <Navbar/>
+       <Navbar props={props}/>
       </div>
       <div className="bg-red-300 h-screen">
         <div className="text-white capitalize text-center text-2xl font-black">

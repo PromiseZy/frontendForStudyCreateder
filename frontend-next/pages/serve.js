@@ -8,9 +8,16 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
+export function getStaticProps({locale}){
+  return{
+    props:{
+      locale
+    }
+  }
+}
 
 
-const serve = () => {
+function serve(props){
     const [serData, setSerData] = useState([])
 
 
@@ -40,7 +47,7 @@ const serve = () => {
     return(
       <>
         <div className="bg-red-300 h-full">
-            <Navbar/>
+          <Navbar props={props}/>
           <div className="">
             <div className="text-white capitalize text-center text-2xl font-black">
               This is serve page !!
